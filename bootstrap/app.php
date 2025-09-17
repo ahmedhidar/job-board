@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Register route middleware
+        $middleware->alias([
+            'employer' => \App\Http\Middleware\Employer::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
